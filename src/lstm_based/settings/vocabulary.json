@@ -1,0 +1,26 @@
+{
+    "vocab_size": 100002,
+    "vocab_emb_init_path": "{data}/glove.6B.{dim}d.txt",
+    "vocab_freq_sortedBy": "output",
+    "vocab_full_size": 100002,
+    "vocab_output_size": 59640,
+    "vocab_minFreq": 5,
+    "vocab_input_size": 96543,
+    "vocab_cased": false,
+    "vocab_emb_dim": 100,
+    "my_vocab_path": "{data}/my_vocab.{dim}d.Vocab",
+    "special_tokens": {
+        "__comment_t5_tokenizer": "<pad> is used as <bos>",
+        "t5_tokenizer": [
+            "<pad>",
+            "<eos>",
+            "<unk>"
+        ],
+        "__comment_struct_tokenizer": "<s> is used for both <bos> and <eos>",
+        "struct_tokenizer": [
+            "<unk>",
+            "<s>"
+        ],
+        "choice": "t5_tokenizer"
+    }
+}

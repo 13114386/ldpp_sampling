@@ -1,0 +1,12 @@
+{
+    "primary_dir": "",
+    "datasetName": "settings/my_test_settings",
+    "subsets": ["evalSet"],
+    "evalSet": {"folder": "eval_data", "name": "eval", "limit_len": false},
+    "summary_dotstop": "",
+    "dataset_loading_method": "load",
+    "trailing_stop": true,
+    "padding": [[],[]],
+    "dataset_root": "",
+    "modeldata_root": ""
+}

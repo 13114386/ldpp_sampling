@@ -1,0 +1,5 @@
+{
+	"model_path":"./model_data/",
+	"reload":true,
+	"reload_options":"*_epoch_*_batch_*.json"
+}

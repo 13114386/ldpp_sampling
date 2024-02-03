@@ -1,0 +1,31 @@
+{
+    "model_name":"ldpp_gigaword",
+    "dpp_search":{
+        "top_K": 50,
+        "redist_weight": 0.98,
+        "n_iterations": 10,
+        "early_stop_cond": 3,
+        "mask_bos": true,
+        "mask_eos": true,
+        "renormalise": "hard",
+        "input_method": {
+            "__comment_choice__": "One of  [combined,   latent,     embedding]",
+            "__comment_layers__": "One of [[1024, 300], [512, 300], [512, 300]]",
+            "choice": "combined",
+            "use_mlp": true,
+            "layers": [1024, 300],
+            "batch_norm": false
+        }
+    },
+    "dpp_coverage": {
+        "__comment_cost_choice__": "[RL, MDPP]",
+        "cost": ["RL"],
+        "__comment_RL_risk_function_choice__": "[MSE, ME, MAE]",
+        "rl_risk_func": "ME",
+        "beta1": 0.97,
+        "beta2": 0.03,
+        "freq": 1
+    },
+    "__comment_exclude_modules__": "Choices from: [dpp_search]",
+    "exclude_modules": []
+}

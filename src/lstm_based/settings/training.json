@@ -1,0 +1,46 @@
+{
+    "batch_size":36,
+    "batchShuffle":true,
+    "sortByLength":true,
+    "num_workers":0,
+    "pin_memory":true,
+    "max_len":51,
+    "max_posi":101,
+    "max_epochs":500,
+    "n_iterations":1000,
+    "weight_lambda":0.001,
+    "grad_clip_freq":10,
+    "grad_clip":5,
+    "save_mode":{
+        "on_epoch":true,
+        "freq":10
+    },
+    "optimizers": {
+        "main": {
+            "optimizer":"Adam",
+            "lr":0.0001,
+            "lr_decay":0.98,
+            "weight_decay":0.000001
+        },
+        "secondary": {
+            "optimizer":"Adam",
+            "lr":0.0001,
+            "lr_decay":0.98,
+            "weight_decay":0.000001
+        },
+        "choice": ["main"]
+    },
+    "warmup": {
+        "__comment__": "epoch_based",
+        "dpp_search":0
+    },
+    "decoder_search": {
+        "__comment_cost_choice__": "[RL, MDPP]",
+        "cost": ["RL"],
+        "__comment_RL_risk_function_choice__": "[MSE, MAE, ME]",
+        "rl_risk_func": "ME",
+        "beta": 0.97
+    },
+    "__comment_forcing_method__": "[default:teacher, predictive, <unk>]",
+    "forcing_method": ["teacher"]
+}

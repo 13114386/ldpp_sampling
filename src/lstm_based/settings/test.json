@@ -1,0 +1,7 @@
+{
+    "batch_size":1,
+    "batchShuffle":false,
+    "sortByLength":true,
+    "max_len":51,
+    "max_posi":101
+}

@@ -1,0 +1,17 @@
+{
+    "primary_dir": "",
+    "datasetName": "settings/my_train_settings",
+    "subsets": ["trainSet", "validSet"],
+    "trainSet": {"folder": "train_data_build", "name": "train", "subset_size": 100000,
+                 "order": "random", "limit_len": false, "dotstop_required": true},
+    "__trainSet_debugging_use": {"folder": "train_data", "name": "train", "subset_size": 2000},
+    "validSet": {"folder": "valid_data_build", "name": "valid",
+                 "limit_len": false, "dotstop_required": true},
+    "summary_dotstop": ".dotted",
+    "dataset_loading_method": "load",
+    "trailing_stop": true,
+    "padding": [[0],[1]],
+    "dectag_classif": { "exclude_dotstop": false },
+    "dataset_root": "",
+    "modeldata_root": ""
+}

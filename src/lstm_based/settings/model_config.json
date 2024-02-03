@@ -1,0 +1,103 @@
+{
+    "model_name":"",
+    "model_cfg":
+    {
+        "LVT_available":true,
+        "Attention_available":true,
+        "Coverage_available":false,
+        "embedding":
+        {
+            "vocab":
+            {
+                "trainable":true,
+                "initial":"glove",
+                "dim":100,
+                "dropout":0.0
+            }
+        },
+        "encoder":
+        {
+            "type":"stacked",
+            "n_layer":2,
+            "encoder_0":
+            {
+                "type":"bi_lstm",
+                "n_in":100,
+                "n_out":256,
+                "dropout":0.0
+            },
+            "encoder_1":
+            {
+                "type":"bi_lstm",
+                "n_in":512,
+                "n_out":256,
+                "dropout":0.0
+            }
+        },
+        "enc2dec_state":
+        {
+            "type":"feedforward",
+            "method":"mean",
+            "n_in":256,
+            "n_out":256,
+            "activation":"tanh"
+        },
+        "decoder":
+        {
+            "type":"struct_node_decoder",
+            "_lstm":
+            {
+                "type":"lstm",
+                "n_in":100,
+                "n_out":256,
+                "dropout":0.0
+            },
+            "_att_1":
+            {
+                "type":"attention",
+                "__comment_cover_dims": "[0]/[] - no coverage, [1] - same dim as alpha, [1,256] - use MLP to learn output",
+                "cover_dims": [0],
+                "n_e":512,
+                "n_d":256,
+                "n_att":256,
+                "activation":"softmax"
+            },
+            "_tanh":
+            {
+                "type":"feedforward",
+                "n_in":768,
+                "n_out":512,
+                "activation":"tanh"
+            },
+            "_softmax":
+            {
+                "type":"feedforward",
+                "n_in":512,
+                "n_out":5000,
+                "activation":"softmax"
+            },
+            "_switcher":
+            {
+                "type":"feedforward",
+                "n_in":868,
+                "n_out":1,
+                "activation":"sigmoid"
+            }
+        },
+        "dpp_search":{
+            "top_K": 100,
+            "redist_weight": 0.98,
+            "n_iterations": 10,
+            "early_stop_cond": 3,
+            "freq": 1,
+            "input_method": {
+                "__comment_choice__": "One of [additive, mlp, none]",
+                "choice": "mlp",
+                "layers": [612, 100],
+                "batch_norm": false
+            }
+        }
+    },
+    "__comment_exclude_modules": "Choices from: [dpp_search]",
+    "exclude_modules": []
+}
