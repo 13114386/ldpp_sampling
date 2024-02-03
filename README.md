@@ -2,7 +2,10 @@
     Refer to pyvenv_requirements.txt.
 
 
-## Process to build datasets
+#### Note: all following running script examples should be one-line commands without backslash. Multiple lined examples here are for readability.
+
+### For BART based model: under src/bart_based
+#### Pre-prepare CNNDM datasets:
 - Download CNNDM datasets into separate folders such as cnndm/.<br>
   (You may use Huggingface datasets APIs to get them).
 - CNNDM contain:
@@ -10,12 +13,7 @@
     - validation.json (13368 lines)
     - test.json (11490 lines)
 
-
-### Note: all following running script examples should be one-line commands without backslash. Multiple lined examples here are for readability.
-
-### For BART based model: under src/bart_based
-#### Build CNNDM dataset: from src/bart_based/data_preparation
-- An example for pre-preparing train dataset:
+- An example for pre-preparing train dataset from bart_based/data_preparation:
     ```
     . model_token_dataset_builder.sh \
         --dataset_root /root/dataset/set/to/be/common/to/datasets/directories/or/folders \
@@ -63,3 +61,19 @@ Note: to pre-prepare validation or test, replace train split_type with validatio
 
     ```
 Note: For single GPU, specify gpu_ids to 0.
+
+
+### For LSTM based model: under src/lstm_based
+#### Pre-prepare Gigaword datasets:
+    We pre-process datasets following https://github.com/KaiQiangSong/struct_infused_summ
+
+#### Runtime:
+- For training:
+    Configure lstm_based/settings/my_train_settings.json
+        Specify dataset_root and modeldata_root
+    Run run_train.sh
+
+- For test:
+    Configure lstm_based/settings/my_test_settings.json
+        Specify dataset_root and modeldata_root
+    Run run_test.sh
