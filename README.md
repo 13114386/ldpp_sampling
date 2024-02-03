@@ -70,10 +70,14 @@ Note: For single GPU, specify gpu_ids to 0.
 #### Runtime:
 - For training:
     Configure lstm_based/settings/my_train_settings.json
+    ```
         Specify dataset_root and modeldata_root
+    ```
     Run run_train.sh
 
 - For test:
     Configure lstm_based/settings/my_test_settings.json
+    ```
         Specify dataset_root and modeldata_root
+    ```
     Run run_test.sh
