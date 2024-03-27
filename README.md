@@ -81,3 +81,14 @@ Note: For single GPU, specify gpu_ids to 0.
         Specify dataset_root and modeldata_root
     ```
     Run run_test.sh
+
+
+## Paper
+@inproceedings{shen2023determinantal,
+  title={A Determinantal Point Process Based Novel Sampling Method of Abstractive Text Summarization},
+  author={Shen, Jianbin and Xuan, Junyu and Liang, Christy},
+  booktitle={2023 International Joint Conference on Neural Networks (IJCNN)},
+  pages={1--8},
+  year={2023},
+  organization={IEEE}
+}
